@@ -3,9 +3,8 @@
   become: true
   vars:
     container_count: 1
-    default_container_name: node
-    default_container_image: node
-    default_container_command: "/bin/bash/"
+    default_container_name: nodejs
+    default_container_image: 8160161152/sample-nodejs:1.0
 
   tasks:
     - name: Install aptitude
@@ -56,8 +55,8 @@
       community.docker.docker_container:
         name: "{{ default_container_name }}{{ item }}"
         image: "{{ default_container_image  }}"
-        command: "sudo docker run node -d "
+        command: "sudo docker run nodejs -d "
         state: present
         ports:
-        - "3000:80"
+        - "8080:80"
       with_sequence: count={{ container_count }}
