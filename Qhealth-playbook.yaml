@@ -4,7 +4,7 @@
   vars:
     container_count: 1
     default_container_name: nodejs
-    default_container_image: 8160161152/sample-nodejs:1.0
+    default_container_image: 8160161152/sample-nodejs:2.0
 
   tasks:
     - name: Install aptitude
@@ -58,5 +58,5 @@
         command: "sudo docker run nodejs -d "
         state: present
         ports:
-        - "8080:80"
+        - "80:80"
       with_sequence: count={{ container_count }}
