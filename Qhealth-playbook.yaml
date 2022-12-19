@@ -55,7 +55,7 @@
       community.docker.docker_container:
         name: "{{ default_container_name }}{{ item }}"
         image: "{{ default_container_image  }}"
-        command: "sudo docker run nodejs -d "
+        command: "sudo docker run -d "
         state: present
         ports:
         - "80:80"
